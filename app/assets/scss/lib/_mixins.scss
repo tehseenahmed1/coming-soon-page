@@ -1,0 +1,50 @@
+
+
+//Gradients
+@mixin gradient($fromC, $to) {
+  background-color: $to;
+  $experimental-support-for-svg: true;
+  @include background-image(linear-gradient(top,  $fromC 0%, $to 100%));
+
+}
+
+//Opacity
+@mixin hpOpacity($trans) {
+  filter: alpha(opactiy=($trans * 100));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+  -moz-opacity: $trans;
+  -khtml-opacity: $trans;
+  opacity: $trans;
+}
+
+//Text Indent: 
+@mixin hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+  font-size: ($sizeValue * 14) * 1px;
+  font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
